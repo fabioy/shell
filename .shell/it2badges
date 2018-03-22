@@ -1,0 +1,26 @@
+# Look at some env vars and sets iterm2 badges with the
+# AWS vault and/or the Kubernetes config file being used.
+# Also sets up a precmd so it's updated on each prompt.
+
+update_it2_badge() {
+  # Set the kubeconfig filename only.
+  iterm2_set_user_var kubeconfig ${KUBECONFIG:t}
+
+  # The AWS Vault
+  iterm2_set_user_var awsvault ${AWS_VAULT}
+
+  IT2BADGE=""
+  if [[ -n ${AWS_VAULT} ]] {
+    IT2BADGE+="A: \(user.awsvault)\n"
+  }
+  if [[ -n ${KUBECONFIG} ]] {
+    IT2BADGE+="K: \(user.kubeconfig)"
+  }
+
+  printf "\e]1337;SetBadgeFormat=%s\a" \
+    $(echo -n "${IT2BADGE}" | base64)
+}
+
+function precmd() {
+  update_it2_badge
+}

@@ -1,0 +1,15 @@
+# Common aliases
+
+# K is for Kubectl
+alias k='kubectl'
+
+# Some cd shortcuts
+alias up1='cd ..'
+alias up2='cd ../..'
+alias up3='cd ../../..'
+alias up4='cd ../../../..'
+alias up5='cd ../../../../..'
+alias up6='cd ../../../../../..'
+
+# Project aliases
+alias heptio='cd ~/go/src/github.com/heptio'

@@ -1,0 +1,3 @@
+# Completions 
+source ${HOME}/.shell/ktx-completion.sh
+source ${HOME}/.shell/kubectl-completion.zsh.inc

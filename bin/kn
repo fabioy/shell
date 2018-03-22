@@ -1,0 +1,4 @@
+#/bin/sh
+
+export CUR_CTX=$(kubectl config current-context)
+kubectl config set-context ${CUR_CTX} --namespace=$1
